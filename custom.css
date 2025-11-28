@@ -737,6 +737,7 @@ footer {
     body {
         background-image: url("static.jpg");
     }
+
     /* Header: увеличен до 30% высоты экрана */
     header {
         height: 32vh;
@@ -842,6 +843,10 @@ footer {
 }
 
 @media (min-aspect-ratio: 2/1) {
+    body {
+        background-image: url("static-0.jpg");
+    }
+
     header {
         height: 9rem;
     }
