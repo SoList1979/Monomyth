@@ -123,10 +123,24 @@ header {
     justify-content: center;
     align-items: center;
     gap: 0.8rem;
-    /* box-shadow: 0 4vmin 20vmin #000000aa, inset 2vmin 2vmin 4vmin #ffaa00aa,
-        inset -2vmin -2vmin 4vmin #ffaa00aa; */
+}
 
-    border: solid #ffaa00 0.2vmax;
+.ins-shadow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 25vh;
+    min-height: 9rem;
+
+    z-index: 2000;
+    box-shadow: 0 0 0 #000000, inset 2vmin 2vmin 4vmin #ffaa00aa,
+        inset -2vmin -2vmin 4vmin #ffaa00aa;
+    border: solid #ffaa00 0.5vmax;
+}
+
+nav {
+    z-index: 3000;
 }
 
 .name {
@@ -162,7 +176,7 @@ header h1 {
 
 header h2 {
     font-size: 1.2rem;
-    margin-top: 1vmin;
+    margin-top: 0;
 }
 
 header nav {
@@ -465,20 +479,6 @@ p {
     font-weight: 600;
 }
 
-/* Мобильная адаптация */
-@media (max-width: 768px) {
-    .monomyth-stages {
-        gap: 1.5rem;
-        padding: 0 1rem;
-    }
-    .monomyth-stages .stage-part {
-        padding: 1vmin;
-    }
-    .monomyth-stages h4 {
-        font-size: 1.2rem;
-    }
-}
-
 .example-card img {
     width: 100%;
     height: 100%;
@@ -540,7 +540,7 @@ p {
     align-items: center;
     /* margin: 4rem 0; */
     padding: 2rem 0;
-    width: 30%;
+    width: 50%;
     background-size: cover;
 }
 
@@ -721,14 +721,29 @@ footer {
     scroll-behavior: smooth;
 }
 
-/* === Мобильная адаптация: до 500px === */
-@media (max-width: 500px) {
+/* === Мобильная адаптация: до 768px === */
+@media (max-width: 768px) and (max-aspect-ratio: 1/1.5) {
     body {
         background-image: url("static.jpg");
     }
 
+    .monomyth-stages {
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    .monomyth-stages .stage-part {
+        padding: 1vmin;
+    }
+    .monomyth-stages h4 {
+        font-size: 1.2rem;
+    }
+
     /* Header: увеличен до 30% высоты экрана */
     header {
+        height: 32vh;
+    }
+
+    .ins-shadow {
         height: 32vh;
     }
 
@@ -748,7 +763,7 @@ footer {
     }
 
     header h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 
     header h2 {
@@ -760,6 +775,7 @@ footer {
         justify-content: center;
         align-items: center;
         gap: 0;
+        margin-top: 2vh;
     }
 
     h2 {
@@ -793,8 +809,6 @@ footer {
         background: #00000099;
         width: 85%;
         max-width: 95vw;
-        /* max-height: 60vh; */
-        /* margin-top: 34vh; */
     }
 
     section h3 {
@@ -831,31 +845,39 @@ footer {
     }
 }
 
-@media (min-aspect-ratio: 2.5/1) {
+@media (min-aspect-ratio: 1/1.5) {
     body {
-        background-image: url("static-0.jpg");
+        /* background-image: url("static-0.jpg"); */
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 
     header {
         height: 9rem;
     }
 
+    .ins-shadow {
+        height: 9rem;
+    }
+
     main {
-        padding-top: calc(9rem + 2vh);
+        padding-top: calc(9rem + 4vh);
+        gap: 6vh;
     }
 
     section {
-        scroll-margin-top: calc(9rem + 2vh);
+        padding: 1.5rem;
+        scroll-margin-top: calc(9rem + 4vh);
     }
 
     .modal-content {
         background: #00000099;
         width: 85%;
-        max-width: 95vw;    
+        max-width: 95vw;
     }
 
     #bg {
-       position: fixed;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
